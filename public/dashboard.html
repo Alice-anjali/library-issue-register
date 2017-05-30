@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <title>Library Issue Register</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-    <div class="container-fluid" style="background-color:#FFD740;padding-bottom:15%">
+    <div class="container-fluid" style="background-color:#FFD740;padding-bottom:15%;">
       <div class="row">
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
@@ -17,8 +19,57 @@
           </div>
         </nav>
       </div>
-
+      <div class="row" style="margin-top:3%;margin-left:1%;margin-right:1%">
+        <table id="lib_table" class="display" width="100%">
+          <thead>
+              <th>Company</th>
+              <th>Contact</th>
+              <th>Country</th>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+          </tr>
+          <tr>
+            <td>Ernst Handel</td>
+            <td>Roland Mendel</td>
+            <td>Austria</td>
+          </tr>
+          <tr>
+            <td>Island Trading</td>
+            <td>Helen Bennett</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Yoshi Tannamuri</td>
+            <td>Canada</td>
+          </tr>
+          <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Giovanni Rovelli</td>
+            <td>Italy</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
    </div>
   </body>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#lib_table').DataTable();
+    });
+  </script>
 </html>
