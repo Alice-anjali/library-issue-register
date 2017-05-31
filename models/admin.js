@@ -8,4 +8,4 @@ var userSchema = new Schema({
 
 var admin = mongoose.model('Admin', userSchema)
 
-model.exports = admin
+module.exports = admin

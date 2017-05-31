@@ -16,4 +16,4 @@ var issueSchema = new Schema({
 
 var issues = mongoose.model('Issuelist', issueSchema)
 
-model.exports = issues
+module.exports = issues
