@@ -8,10 +8,10 @@ var issueSchema = new Schema({
   phone : String,
   branch : String,
   regd_no : String,
-  issue_date : Date,
-  is_returned : Boolean,
+  issue_date : {type: Date, default: Date.now},
+  is_returned : {type: Boolean, default:false},
   returned_by : String,
-  return_date : Date
+  return_date : {type: Date, default: Date.now}
 });
 
 var issues = mongoose.model('Issuelist', issueSchema)

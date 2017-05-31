@@ -7,6 +7,14 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var Admin = require('./models/admin');
+var Issuelist = require('./models/issuelist');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/libraryRegister');
+
+mongoose.connection.on('connected', function(){
+  console.log("Database connected");
+});
 
 var app = express();
 
