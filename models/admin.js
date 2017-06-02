@@ -6,6 +6,6 @@ var userSchema = new Schema({
   password : String
 });
 
-var admin = mongoose.model('Admin', userSchema)
+var admin = mongoose.model('myadmin', userSchema)
 
 module.exports = admin

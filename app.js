@@ -11,10 +11,6 @@ var Issuelist = require('./models/issuelist');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/libraryRegister');
 
-mongoose.connection.on('connected', function(){
-  console.log("Database connected");
-});
-
 var app = express();
 
 // view engine setup
@@ -31,9 +27,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 
-app.post('/quotes', function(req, res){
-  console.log(req.body);
-})
+Admin.findOne({}, function(err,admin){
+  if (err){
+     return handleError(err);
+  }
+  else{
+    if (admin){
+      console.log("Admin already present!");
+    }
+    else{
+      console.log("Creating a new admin");
+      var newAdmin = new Admin({
+        admin : 'dummy',
+        password : '123'
+      });
+      newAdmin.save(function(err){
+        if (err){
+          return handleError(err);
+        }
+        else{
+          console.log("New Admin created");
+        }
+      });
+    }
+  }
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
