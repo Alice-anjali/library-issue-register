@@ -12,7 +12,7 @@ var issueSchema = new Schema({
   is_returned : {type: Boolean, default:false},
   returned_by : String,
   return_date : {type: Date, default: Date.now}
-});
+},{ collection : 'Issuelist'});
 
 var issues = mongoose.model('Issuelist', issueSchema)
 
