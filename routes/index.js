@@ -17,7 +17,7 @@ router.post('/login', function(req, res, next) {
     else{
       if(admin){
         req.session.admin = 'library@cet'
-        res.sendFile(path.resolve(__dirname + '/../public/dashboard.html'));
+         res.redirect('/dashboard');
       }
       else{
         res.redirect('/');
@@ -30,5 +30,8 @@ router.get('/logout', function(req,res,next){
   req.session.admin = null;
   res.redirect('/');
 });
+
+
+
 
 module.exports = router;
