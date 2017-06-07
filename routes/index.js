@@ -43,14 +43,23 @@ router.get('/logout', function(req,res,next){
 //   });
 // });
 
-router.get('/dashboard', function(req,res,next){
+var loggedincheck = function(req,res,next){
+  if(req.session){
+    if(req.session.admin == 'library@cet'){
+      return next();
+    }
+    else{
+      res.redirect('/');
+    }
+  }
+  else{
+    res.redirect('/');
+  }
+}
+
+router.get('/dashboard', loggedincheck, function(req,res,next){
     res.render('dashboard', {});
 });
-
-// var loggedincheck = function(req,res,next){
-//   console.log("loggedincheck......");
-//   return next();
-// }
 
 // var loggedincheck = function(req,res,next){
 //   if(req.session){
