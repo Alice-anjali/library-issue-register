@@ -92,15 +92,46 @@
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title"><b>New Issue</b></h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
             <div class="modal-body">
-              <p>Modal body text goes here.</p>
+              <form action="/additem" method="post">
+                <table width="100%">
+                  <tr>
+                    <td style="float:right">Book Name:</td>
+                    <td><input type="text"></td>
+                    <td style="float:right">Book ID:</td>
+                    <td><input type="text"></td>
+                  </tr>
+                  <tr>
+                    <td><font color="#ffffff">""</font></td>
+                  </tr>
+                  <tr>
+                    <td style="float:right">Issued By:</td>
+                    <td><input type="text"></td>
+                    <td style="float:right">Phone no.:</td>
+                    <td><input type="text"></td>
+                  </tr>
+                  <tr>
+                    <td><font color="#ffffff">""</font></td>
+                  </tr>
+                  <tr>
+                    <td style="float:right">Branch:</td>
+                    <td><input type="text"></td>
+                    <td style="float:right">Regd.no.:</td>
+                    <td><input type="text"></td>
+                  </tr>
+                  <tr>
+                    <td><font color="#ffffff">""</font></td>
+                  </tr>
+                  <tr>
+                    <td style="float:right">Issue Date:</td>
+                    <td><input type="text"></td>
+                  </tr>
+                </table>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Add</button>
+              <button type="submit" class="btn btn-primary">Add</button>
+            </form>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
@@ -113,9 +144,6 @@
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title"><b>Edit Issue</b></h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
             <div class="modal-body">
               <p>Modal body text goes here.</p>
@@ -134,9 +162,6 @@
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title"><b>Return Issue</b></h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
             <div class="modal-body">
               <p>Modal body text goes here.</p>
