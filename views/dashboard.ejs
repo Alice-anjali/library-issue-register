@@ -125,7 +125,7 @@
                   </tr>
                   <tr>
                     <td style="float:right">Issue Date:</td>
-                    <td><input type="text"></td>
+                    <td><input type="date"></td>
                   </tr>
                 </table>
             </div>
@@ -146,10 +146,44 @@
               <h4 class="modal-title"><b>Edit Issue</b></h4>
             </div>
             <div class="modal-body">
-              <p>Modal body text goes here.</p>
+              <form action="/edititem" method="post">
+                <table width="100%">
+                  <tr>
+                    <td style="float:right">Book Name:</td>
+                    <td><input type="text" id="bookname"></td>
+                    <td style="float:right">Book ID:</td>
+                    <td><input type="text" id="bookid"></td>
+                  </tr>
+                  <tr>
+                    <td><font color="#ffffff">""</font></td>
+                  </tr>
+                  <tr>
+                    <td style="float:right">Issued By:</td>
+                    <td><input type="text" id="issuedby"></td>
+                    <td style="float:right">Phone no.:</td>
+                    <td><input type="text" id="phoneno"></td>
+                  </tr>
+                  <tr>
+                    <td><font color="#ffffff">""</font></td>
+                  </tr>
+                  <tr>
+                    <td style="float:right">Branch:</td>
+                    <td><input type="text" id="branch"></td>
+                    <td style="float:right">Regd.no.:</td>
+                    <td><input type="text" id="regdno"></td>
+                  </tr>
+                  <tr>
+                    <td><font color="#ffffff">""</font></td>
+                  </tr>
+                  <tr>
+                    <td style="float:right">Issue Date:</td>
+                    <td><input type="date" id="issuedate"></td>
+                  </tr>
+                </table>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
