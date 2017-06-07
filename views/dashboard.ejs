@@ -198,10 +198,19 @@
               <h4 class="modal-title"><b>Return Issue</b></h4>
             </div>
             <div class="modal-body">
-              <p>Modal body text goes here.</p>
+              <form action="/edititem" method="post">
+                <table width="100%">
+                  <tr>
+                    <td style="float:right">Returned By:</td>
+                    <td><input type="text"></td>
+                    <td style="float:right">Return Date:</td>
+                    <td><input type="text"></td>
+                  </tr>
+                </table>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Return</button>
+              <button type="submit" class="btn btn-primary">Return</button>
+            </form>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
