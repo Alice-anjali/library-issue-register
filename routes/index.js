@@ -11,13 +11,21 @@ router.get('/', function(req, res, next) {
 
 router.post('/login', function(req, res, next) {
   Admin.findOne({admin : req.body.username, password : req.body.password},function(err,admin){
-    if(admin){
-      res.sendFile(path.resolve(__dirname + '/../public/dashboard.html'));
+    if (err){
+      res.redirect('/logout');
     }
     else{
-      res.redirect('/');
+      if(admin){
+        req.session.admin = 'library@cet'
+        res.sendFile(path.resolve(__dirname + '/../public/dashboard.html'));
+      }
+      else{
+        res.redirect('/');
+      }
     }
   })
 });
+
+// router.get('/logout',)
 
 module.exports = router;
