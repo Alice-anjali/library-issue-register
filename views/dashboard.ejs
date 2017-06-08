@@ -86,7 +86,7 @@
         </table>
       </div>
 
-      //Add item modal
+      <!-- Add item modal -->
       <div id="newIssue" class="modal fade">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -98,34 +98,34 @@
                 <table width="100%">
                   <tr>
                     <td style="float:right">Book Name:</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" name="book_name"></td>
                     <td style="float:right">Book ID:</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" name="book_id"></td>
                   </tr>
                   <tr>
                     <td><font color="#ffffff">""</font></td>
                   </tr>
                   <tr>
                     <td style="float:right">Issued By:</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" name="issued_by"></td>
                     <td style="float:right">Phone no.:</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" name="phone"></td>
                   </tr>
                   <tr>
                     <td><font color="#ffffff">""</font></td>
                   </tr>
                   <tr>
                     <td style="float:right">Branch:</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" name="branch"></td>
                     <td style="float:right">Regd.no.:</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" name="regd_no"></td>
                   </tr>
                   <tr>
                     <td><font color="#ffffff">""</font></td>
                   </tr>
                   <tr>
                     <td style="float:right">Issue Date:</td>
-                    <td><input type="date"></td>
+                    <td><input type="date" name="issue_date"></td>
                   </tr>
                 </table>
             </div>
@@ -138,7 +138,7 @@
         </div>
       </div>
 
-      //Edit item modal
+      <!-- Edit item modal -->
       <div id="editIssue" class="modal fade">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -190,7 +190,7 @@
         </div>
       </div>
 
-      //Return item modal
+      <!-- Return item modal -->
       <div id="returnIssue" class="modal fade">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -231,6 +231,7 @@
     $(document).ready(function(){
       $('#returned_issue_table').DataTable();
     });
+    <% console.log(issuelist); %>
     $('#newIssue').modal('show');
     $('#editIssue').modal('show');
     $('#returnIssue').modal('show');

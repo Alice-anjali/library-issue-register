@@ -32,17 +32,6 @@ router.get('/logout', function(req,res,next){
   res.redirect('/');
 });
 
-// router.get('/dashboard', loggedincheck, function(req,res,next){
-//   issueList.find({},function(err, getIssues){
-//     if(err){
-//       return handleError(err);
-//     }
-//     else{
-//       res.render('dashboard', {IssueList : getIssues});
-//     }
-//   });
-// });
-
 var loggedincheck = function(req,res,next){
   if(req.session){
     if(req.session.admin == 'library@cet'){
@@ -58,21 +47,35 @@ var loggedincheck = function(req,res,next){
 }
 
 router.get('/dashboard', loggedincheck, function(req,res,next){
-    res.render('dashboard', {});
+  issueList.find({},function(err,issues){
+    console.log(issues);
+    if(err){
+      console.log(err);
+    }
+    else{
+        res.render('dashboard', {issuelist: issues});
+    }
+  })
 });
 
-// var loggedincheck = function(req,res,next){
-//   if(req.session){
-//     if(req.session.admin == 'library@cet'){
-//       next();
-//     }
-//     else{
-//       res.redirect('/');
-//     }
-//   }
-//   else{
-//     res.redirect('/');
-//   }
-// }
+router.post('/additem', loggedincheck, function(req,res,next){
+  var add_issue = new issueList({
+    book_name : req.body.book_name,
+    book_id : req.body.book_id,
+    issued_by : req.body.issued_by,
+    phone : req.body.phone,
+    branch : req.body.branch,
+    regd_no : req.body.regd_no,
+    issue_date : req.body.issue_date
+  });
+  add_issue.save(function(err){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.redirect('/dashboard');
+    }
+  })
+});
 
 module.exports = router;
