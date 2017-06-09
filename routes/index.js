@@ -77,7 +77,7 @@ router.post('/additem', loggedincheck, function(req,res,next){
   })
 });
 
-router.post('/edititem', loggedincheck, function(req,res,next){
+router.post('/editbook', loggedincheck, function(req,res,next){
   issueList.findOne({_id : req.body.issue_id},function(err,id){
     if(err){
       console.log(err);
