@@ -48,7 +48,6 @@ var loggedincheck = function(req,res,next){
 
 router.get('/dashboard', loggedincheck, function(req,res,next){
   issueList.find({},function(err,issues){
-    console.log(issues);
     if(err){
       console.log(err);
     }
@@ -76,6 +75,35 @@ router.post('/additem', loggedincheck, function(req,res,next){
       res.redirect('/dashboard');
     }
   })
+});
+
+router.post('/edititem', loggedincheck, function(req,res,next){
+  issueList.findOne({_id : req.body.issue_id},function(err,id){
+    if(err){
+      console.log(err);
+    }
+    else {
+      if(id){
+        id.book_name = req.body.bookname;
+        id.book_id = req.body.bookid;
+        id.issued_by = req.body.issuedby;
+        id.phone = req.body.phoneno;
+        id.branch = req.body.branch;
+        id.regd_no = req.body.regdno;
+        id.issue_date = req.body.issuedate;
+        id.save(function(err){
+          if (err){
+            return handleError(err);
+          }
+          else{
+            console.log("Issue edited successfully");
+            console.log("new values = "+id);
+            res.redirect('/dashboard');
+          }
+        });
+      }
+    }
+  });
 });
 
 module.exports = router;
