@@ -45,7 +45,7 @@
             <td><%= issuelist[i].branch %></td>
             <td><%= issuelist[i].regd_no %></td>
             <td><%= issuelist[i].issue_date %></td>
-            <td><button id="add_btn" class="btn btn-info" data-toggle="modal" data-target="#editIssue">Edit</button></td>
+            <td><button id="add_btn" onclick="editme('<%=issuelist[i].book_id%>','<%=issuelist[i].book_name%>','<%=issuelist[i].issued_by%>','<%=issuelist[i].phone%>','<%=issuelist[i].branch%>','<%=issuelist[i].regd_no%>','<%=issuelist[i].issue_date%>')" class="btn btn-info" data-toggle="modal" data-target="#editIssue">Edit</button></td>
             <td><button id="add_btn" class="btn btn-success" data-toggle="modal" data-target="#returnIssue">Return</button></td>
           </tr>
           <% } %>
@@ -236,5 +236,15 @@
     $('#newIssue').modal('show');
     $('#editIssue').modal('show');
     $('#returnIssue').modal('show');
+
+    function editme(bookid,bookname,issuedby,phone,branch,regd,issuedate){
+      document.getElementById('bookname').value = bookname;
+      document.getElementById('bookid').value = bookid;
+      document.getElementById('issuedby').value = issuedby;
+      document.getElementById('phoneno').value = phone;
+      document.getElementById('branch').value = branch;
+      document.getElementById('regdno').value = regd;
+      document.getElementById('issuedate').value = issuedate;
+    }
   </script>
 </html>
