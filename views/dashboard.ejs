@@ -46,7 +46,7 @@
             <td><%= issuelist[i].regd_no %></td>
             <td><%= issuelist[i].issue_date %></td>
             <td><button id="add_btn" onclick="editme('<%=issuelist[i].book_id%>','<%=issuelist[i].book_name%>','<%=issuelist[i].issued_by%>','<%=issuelist[i].phone%>','<%=issuelist[i].branch%>','<%=issuelist[i].regd_no%>','<%=issuelist[i].issue_date%>','<%=issuelist[i]._id%>')" class="btn btn-info" data-toggle="modal" data-target="#editIssue">Edit</button></td>
-            <td><button id="add_btn" onclick="returnme('<%=issuelist[i].issued_by%>')" class="btn btn-success" data-toggle="modal" data-target="#returnIssue">Return</button></td>
+            <td><button id="add_btn" onclick="returnme('<%=issuelist[i].issued_by%>','<%=issuelist[i]._id%>')" class="btn btn-success" data-toggle="modal" data-target="#returnIssue">Return</button></td>
           </tr>
           <% } %>
         </tbody>
@@ -208,7 +208,7 @@
                     <td><input type="text" id="returnedby" name="returnedby"></td>
                     <td style="float:right">Return Date:</td>
                     <td><input type="date" id="returndate" name="returndate"></td>
-                    <td><input type="hidden" id="issue_id" name="issue_id"></td>
+                    <td><input type="hidden" id="returnissue_id" name="returnissue_id"></td>
                   </tr>
                 </table>
             </div>
@@ -250,9 +250,11 @@
       document.getElementById('issue_id').value = issueid;
     }
 
-    function returnme(issuedby){
+    function returnme(issuedby,issueid){
+      console.log("front = "+issueid);
       document.getElementById('returnedby').value = issuedby;
-      document.getElementById('returndate').value = Date();
+      document.getElementById('issue_id').value = returnissueid;
+      // document.getElementById('returndate').value = Date();
     }
   </script>
 </html>
