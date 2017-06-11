@@ -47,14 +47,22 @@ var loggedincheck = function(req,res,next){
 }
 
 router.get('/dashboard', loggedincheck, function(req,res,next){
-  issueList.find({},function(err,issues){
+  issueList.find({is_returned : false},function(err,due_issues){
     if(err){
       console.log(err);
     }
     else{
-        res.render('dashboard', {issuelist: issues});
+        res.render('dashboard', {issuelist: due_issues});
     }
   })
+  issueList.find({is_returned : true},function(err,returned_issues){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.render('dashboard', {returnissues : returned_issues});
+    }
+  });
 });
 
 router.post('/additem', loggedincheck, function(req,res,next){
