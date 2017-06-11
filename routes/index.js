@@ -52,15 +52,14 @@ router.get('/dashboard', loggedincheck, function(req,res,next){
       console.log(err);
     }
     else{
-        res.render('dashboard', {issuelist: due_issues});
-    }
-  })
-  issueList.find({is_returned : true},function(err,returned_issues){
-    if(err){
-      console.log(err);
-    }
-    else{
-      res.render('dashboard', {returnissues : returned_issues});
+        issueList.find({is_returned : true},function(err,returned_issues){
+         if(err){
+           console.log(err);
+         }
+         else{
+           res.render('dashboard', {issuelist : due_issues, returnissues : returned_issues});
+         }
+       });
     }
   });
 });
