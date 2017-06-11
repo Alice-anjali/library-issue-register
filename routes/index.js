@@ -103,8 +103,6 @@ router.post('/editbook', loggedincheck, function(req,res,next){
             return handleError(err);
           }
           else{
-            console.log("Issue edited successfully");
-            console.log("new values = "+id);
             res.redirect('/dashboard');
           }
         });
@@ -115,7 +113,6 @@ router.post('/editbook', loggedincheck, function(req,res,next){
 
 router.post('/returnbook', loggedincheck, function(req,res,next){
   issueList.findOne({_id : req.body.returnissue_id},function(err,id){
-    console.log("return = "+id);
     if(err){
       console.log(err);
     }
@@ -129,13 +126,21 @@ router.post('/returnbook', loggedincheck, function(req,res,next){
             return handleError(err);
           }
           else{
-            console.log("Issue returned successfully");
-            console.log("new values = "+id);
             res.redirect('/dashboard');
           }
         });
       }
     }
+  });
+});
+
+router.post('/deletebook', loggedincheck, function(req,res,next){
+  issueList.remove({_id : req.body.delete_id}, function(err, result){
+    if(err){
+      console.log(err);
+    }
+    console.log("result = "+result);
+    res.redirect('/dashboard');
   });
 });
 
