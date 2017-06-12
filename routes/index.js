@@ -72,7 +72,7 @@ router.post('/additem', loggedincheck, function(req,res,next){
     phone : req.body.phone,
     branch : req.body.branch,
     regd_no : req.body.regd_no,
-    issue_date : req.body.issue_date
+    issue_date : req.body.hidden_date
   });
   add_issue.save(function(err){
     if(err){

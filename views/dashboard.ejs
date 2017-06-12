@@ -130,6 +130,7 @@
                   <tr>
                     <td style="float:right">Issue Date:</td>
                     <td><input type="date" id="issue_date" name="issue_date"></td>
+                    <td><input type="hidden" id="hidden_date" name="hidden_date"></td>
                   </tr>
                 </table>
             </div>
@@ -265,9 +266,12 @@
 
     function addme(){
       var d = new Date();
+      // console.log("d = "+d);
       var n = d.toISOString();
       var idate = n.substring(0,10);
+      // console.log("date = "+ new Date(idate));
       document.getElementById('issue_date').value = idate;
+      document.getElementById('hidden_date').value = d;
     }
 
     function editme(bookid,bookname,issuedby,phone,branch,regd,issuedate,issueid){
@@ -280,6 +284,8 @@
       var d = new Date(issuedate);
       var n = d.toISOString();
       var edate = n.substring(0,10);
+      // console.log("parse = "+ Date.parse(edate));
+      // console.log("gdgfd = "+ new Date(edate));
       document.getElementById('issuedate').value = edate;
       document.getElementById('issue_id').value = issueid;
     }
@@ -296,5 +302,6 @@
     function delme(deleteid){
       document.getElementById('delete_id').value = deleteid;
     }
+
   </script>
 </html>
