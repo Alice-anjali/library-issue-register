@@ -53,7 +53,7 @@
         </table>
       </div>
       <div class="row text-center" style="margin-bottom:5%">
-        <button id="add_btn" class="btn btn-primary" data-toggle="modal" data-target="#newIssue">New Issue</button>
+        <button id="add_btn" onclick="addme()" class="btn btn-primary" data-toggle="modal" data-target="#newIssue">New Issue</button>
       </div>
 
       <div class="row text-center">
@@ -129,7 +129,7 @@
                   </tr>
                   <tr>
                     <td style="float:right">Issue Date:</td>
-                    <td><input type="date" name="issue_date"></td>
+                    <td><input type="date" id="issue_date" name="issue_date"></td>
                   </tr>
                 </table>
             </div>
@@ -263,6 +263,13 @@
     $('#returnIssue').modal('show');
     $('#deleteIssue').modal('show');
 
+    function addme(){
+      var d = new Date();
+      var n = d.toISOString();
+      var idate = n.substring(0,10);
+      document.getElementById('issue_date').value = idate;
+    }
+
     function editme(bookid,bookname,issuedby,phone,branch,regd,issuedate,issueid){
       document.getElementById('bookname').value = bookname;
       document.getElementById('bookid').value = bookid;
@@ -277,7 +284,10 @@
     function returnme(issuedby,returnissueid){
       document.getElementById('returnedby').value = issuedby;
       document.getElementById('returnissue_id').value = returnissueid;
-      // document.getElementById('returndate').value = Date();
+      var d = new Date();
+      var n = d.toISOString();
+      var rdate = n.substring(0,10);
+      document.getElementById('returndate').value = rdate;
     }
 
     function delme(deleteid){
