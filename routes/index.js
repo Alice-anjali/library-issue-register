@@ -1,36 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var Admin = require('../models/admin');
+// var Admin = require('../models/admin');
 var issueList = require('../models/issuelist');
 var app = express();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.sendFile(path.resolve(__dirname + '/../public/login.html'));
-});
-
-router.post('/login', function(req, res, next) {
-  Admin.findOne({admin : req.body.username, password : req.body.password},function(err,admin){
-    if (err){
-      res.redirect('/logout');
-    }
-    else{
-      if(admin){
-        req.session.admin = 'library@cet'
-         res.redirect('/dashboard');
-      }
-      else{
-        res.redirect('/');
-      }
-    }
-  })
-});
-
-router.get('/logout', function(req,res,next){
-  req.session.admin = null;
-  res.redirect('/');
-});
 
 var loggedincheck = function(req,res,next){
   if(req.session){
@@ -45,6 +18,11 @@ var loggedincheck = function(req,res,next){
     res.redirect('/');
   }
 }
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.sendFile(path.resolve(__dirname + '/../public/login.html'));
+});
 
 router.get('/dashboard', loggedincheck, function(req,res,next){
   issueList.find({is_returned : false},function(err,due_issues){
