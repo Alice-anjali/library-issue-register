@@ -277,7 +277,10 @@
       document.getElementById('phoneno').value = phone;
       document.getElementById('branch').value = branch;
       document.getElementById('regdno').value = regd;
-      document.getElementById('issuedate').value = issuedate;
+      var d = new Date(issuedate);
+      var n = d.toISOString();
+      var edate = n.substring(0,10);
+      document.getElementById('issuedate').value = edate;
       document.getElementById('issue_id').value = issueid;
     }
 
