@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-// var Admin = require('../models/admin');
 var issueList = require('../models/issuelist');
 var app = express();
 
