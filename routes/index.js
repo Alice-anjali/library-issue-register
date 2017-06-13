@@ -117,7 +117,6 @@ router.post('/deletebook', loggedincheck, function(req,res,next){
     if(err){
       console.log(err);
     }
-    console.log("result = "+result);
     res.redirect('/dashboard');
   });
 });
