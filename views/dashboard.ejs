@@ -284,8 +284,8 @@
       var d = new Date(issuedate);
       var n = d.toISOString();
       var edate = n.substring(0,10);
-      // console.log("parse = "+ Date.parse(edate));
-      // console.log("gdgfd = "+ new Date(edate));
+      console.log("parse = "+ Date.parse(edate));
+      console.log("gdgfd = "+ new Date(edate));
       document.getElementById('issuedate').value = edate;
       document.getElementById('issue_id').value = issueid;
     }
