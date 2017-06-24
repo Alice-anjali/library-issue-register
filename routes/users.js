@@ -4,20 +4,6 @@ var path = require('path');
 var Admin = require('../models/admin');
 var app = express();
 
-var loggedincheck = function(req,res,next){
-  if(req.session){
-    if(req.session.admin == 'library@cet'){
-      return next();
-    }
-    else{
-      res.redirect('/');
-    }
-  }
-  else{
-    res.redirect('/');
-  }
-}
-
 router.post('/login', function(req, res, next) {
   Admin.findOne({admin : req.body.username, password : req.body.password},function(err,admin){
     if (err){
@@ -25,7 +11,7 @@ router.post('/login', function(req, res, next) {
     }
     else{
       if(admin){
-        req.session.admin = 'library@cet'
+        req.session.admin = 'library@cet';
          res.redirect('/dashboard');
       }
       else{
